@@ -130,25 +130,90 @@ void link_list::show() {
 
 int main() {
         link_list list;
-        list.ins(2);
+        bool ans = false;
+        ans = list.ins(2);
+        if (ans) {
+                std::cout << "插入节点2成功" << std::endl;
+        } else {
+                std::cout << "插入节点2失败" << std::endl;
+        }
         list.show();
-        list.ins(5);
-        list.ins(3);
+        ans = list.ins(5);
+        if (ans) {
+                std::cout << "插入节点5成功" << std::endl;
+        } else {
+                std::cout << "插入节点5失败" << std::endl;
+        }
         list.show();
-        list.ins(1);
+        ans = list.ins(3);
+        if (ans) {
+                std::cout << "插入节点3成功" << std::endl;
+        } else {
+                std::cout << "插入节点3失败" << std::endl;
+        }        
         list.show();
-        list.ins(4);
+        ans = list.ins(1);
+        if (ans) {
+                std::cout << "插入节点1成功" << std::endl;
+        } else {
+                std::cout << "插入节点1失败" << std::endl;
+        }        
         list.show();
-        list.ins(4);
+        ans = list.ins(4);
+        if (ans) {
+                std::cout << "插入节点4成功" << std::endl;
+        } else {
+                std::cout << "插入节点4失败" << std::endl;
+        }        
+        list.show();
+        ans = list.ins(4);
+        if (ans) {
+                std::cout << "插入节点4成功" << std::endl;
+        } else {
+                std::cout << "插入节点4失败" << std::endl;
+        }        
         list.show();
 
-        list.del(2);
+        ans = list.find(5);
+        if (ans) {
+                std::cout << "查找节点5成功" << std::endl;
+        } else {
+                std::cout << "查找节点5失败" << std::endl;
+        }
+        ans = list.find(6);
+        if (ans) {
+                std::cout << "查找节点6成功" << std::endl;
+        } else {
+                std::cout << "查找节点6失败" << std::endl;
+        }
+
+        ans = list.del(2);
+        if (ans) {
+                std::cout << "删除节点2成功" << std::endl;
+        } else {
+                std::cout << "删除节点2失败" << std::endl;
+        }        
         list.show();
-        list.del(2);
+        ans = list.del(2);
+        if (ans) {
+                std::cout << "删除节点2成功" << std::endl;
+        } else {
+                std::cout << "删除节点2失败" << std::endl;
+        }             
         list.show();
-        list.del(1);
+        ans = list.del(1);
+        if (ans) {
+                std::cout << "删除节点1成功" << std::endl;
+        } else {
+                std::cout << "删除节点1失败" << std::endl;
+        }             
         list.show();
-        list.del(5);
+        ans = list.del(5);
+        if (ans) {
+                std::cout << "删除节点5成功" << std::endl;
+        } else {
+                std::cout << "删除节点5失败" << std::endl;
+        }             
         list.show();
         return 0;
 }
