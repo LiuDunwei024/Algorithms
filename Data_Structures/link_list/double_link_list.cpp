@@ -1,15 +1,24 @@
 #include <iostream>
-
+#include "../output_define.h"
 #include "Node_define.h"
 
-#define debug
+
+#define DOUBLE_LINK_LIST
 
 template<typename T>
 class double_link_list
 {
 public:
         double_link_list(){}
-        ~double_link_list(){}
+        ~double_link_list(){
+                Node<T> *curNode;
+                while (head) {
+                        curNode = head;
+                        head = head->next;
+                        delete curNode;
+                        curNode = NULL;
+                }
+        }
         bool find(T val);
         bool ins(T val);
         bool del(T val);
@@ -111,11 +120,11 @@ bool double_link_list<T>::find(T val) {
                 }
         }
 
-# ifdef debug
+# ifdef DEBUG
         if (ans) {
-                std::cout << "Find node success!" << std::endl;
+                FIND_SUCCESS();
         } else {
-                std::cout << "Find node fail!" << std::endl;
+                FIND_FAIL();
         }
 # endif
 
@@ -160,13 +169,13 @@ bool double_link_list<T>::ins(T val) {
                 }
         }
 
-#ifdef debug
+# ifdef DEBUG
         if (ans) {
-                std::cout << "insert node success!" << std::endl;
+                INSERT_SUCCESS();
         } else {
-                std::cout <<"insert node fail!" << std::endl;
+                INSERT_FAIL();
         }
-#endif
+# endif
         return ans;
 }
 
@@ -193,13 +202,14 @@ bool double_link_list<T>::del(T val) {
                         }
                 }
         }
-#ifdef debug
+
+# ifdef DEBUG
         if (ans) {
-                std::cout << "delete node success!" << std::endl;
+                DELETE_SUCCESS();
         } else {
-                std::cout << "delete node fail!" << std::endl;
+                DELETE_FAIL();
         }
-#endif
+# endif
         return ans;
 }
 
@@ -217,29 +227,4 @@ void double_link_list<T>::show(){
         }
 }
 
-int main() {
-        double_link_list<char> dll;
-        dll.ins('a');
-        dll.show();
-        dll.ins('e');
-        dll.show();
-        dll.ins('b');
-        dll.ins('c');
-        dll.ins('d');
-        dll.show();
-        dll.ins('c');
-        dll.show();
-
-        dll.find('a');
-        dll.find('A');
-
-        dll.del('a');
-        dll.show();
-        dll.del('a');
-        dll.del('c');
-        dll.show();
-        dll.del('e');
-        dll.show();
-
-        return 0;
-}
+#include "microbench.h"
