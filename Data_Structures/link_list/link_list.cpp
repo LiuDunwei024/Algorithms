@@ -18,13 +18,13 @@ public:
                 }
         }
 
-        Node<T>* search(T value);
         bool find(T value);
         bool ins(T value);
         bool del(T value);
         void show();
 
 private:
+        Node<T>* search(T value);
         Node<T> *_head;
 };
 

@@ -8,5 +8,10 @@ struct Node{
         Node<T> *next;
 };
 
+template<typename T>
+struct snapshot {
+        Node<T> *prev;
+        Node<T> *cur;
+};
 
 #endif

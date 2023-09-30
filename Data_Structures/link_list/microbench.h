@@ -11,6 +11,10 @@
         link_list<int> list;
 #endif
 
+#ifdef LINK_LIST_TAG
+        link_list_tag<int> list;
+#endif
+
 long nnodes = 0;
 long ins_nodes_success = 0;
 long ins_nodes_fail = 0;
