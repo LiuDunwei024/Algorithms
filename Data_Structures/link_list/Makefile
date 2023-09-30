@@ -5,13 +5,16 @@
 
 #如果需要定义宏，在CFLAGS后面加 -DDEBUG（定义名称为DEBUG的宏）
 CFLAGS += -g -o3 -Wall
-PROGS = double_link_list link_list link_list_tag
+PROGS = double_link_list link_list link_list_tag double_link_list_tag
 TORT = microbench.h
 LIBS = 
 
 all: $(PROGS)
 
 double_link_list: double_link_list.cpp $(TORT)
+	g++ $(CFLAGS) -o $@ $<
+
+double_link_list_tag: double_link_list_tag.cpp $(TORT)
 	g++ $(CFLAGS) -o $@ $<
 
 link_list: link_list.cpp $(TORT)

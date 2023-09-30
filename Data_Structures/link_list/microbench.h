@@ -7,6 +7,10 @@
         double_link_list<int> list;
 #endif
 
+#ifdef DOUBLE_LINK_LIST_TAG
+        double_link_list_tag<int> list;
+#endif
+
 #ifdef LINK_LIST
         link_list<int> list;
 #endif
