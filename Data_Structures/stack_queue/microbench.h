@@ -18,27 +18,21 @@ void test(int num) {
 
         while ((num1 + num2 + num3) != 0) {
                 int i = rand()%num;
-                int j = rand()%3;
+                int j = rand()%2;
                 switch (j) {
                         case 0:
                                 if (0 != num1) {
                                         ss.push(i);
                                         --num1;
+                                        assert(ss.size() != 0);
+                                        std::cout << "top = " << ss.top() << std::endl;
+                                        --num3;
                                 }
                                 break;
                         case 1:
                                 if (0 != num2) {
                                         ss.pop();
                                         --num2;
-                                }
-                                break;
-                        case 2:
-                                if (0 != num3) {
-                                        if (!ss.empty()) {
-                                                assert(ss.size() != 0);
-                                                std::cout << "top = " << ss.top() << std::endl;
-                                                --num3;
-                                        }
                                 }
                                 break;
                 }
