@@ -7,22 +7,21 @@
 template <typename T>
 class BinaryTree {
 public:
-        BinaryTree(){
-                root = create_tree(root);
-        }
+        BinaryTree(){}
         ~BinaryTree(){
                 delete_tree(root);
         }
+        //问询法创建二叉树
+        Node<T> *create_tree(Node<T> *tree);
         void preorder_tree(Node<T> *tree);
         void inorder_tree(Node<T> *tree);
         void epilogue_tree(Node<T> *tree);
         void level_traverse(Node<T> *tree);
 
-private:
-        //问询法创建二叉树
-        Node<T> *create_tree(Node<T> *tree);
-        void delete_tree(Node<T> *tree);
         Node<T> *root;
+        
+private:
+        void delete_tree(Node<T> *tree);
 };
 
 template <typename T>
@@ -109,3 +108,5 @@ void BinaryTree<T>::level_traverse(Node<T> *tree) {
                 }
         }
 }
+
+#include "microbench.h"
